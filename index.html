@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Recicla+</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="slider">
+    <img src="images_icons/imagem_melhorada_fullhd.png" class="slide active" alt="Reciclagem natureza">
+    <img src="images_icons/batenoteno.png" class="slide" alt="Planeta terra">
+    <img src="images_icons/chupangos.webp" class="slide" alt="Sustentabilidade">
+  </div>
+  <div class="conteudo">
+    <h1 id="titulo">Recicle Hoje 🌱</h1>
+    <p id="texto">Pequenas ações fazem grandes mudanças</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="moderno fade">
+    <div class="container bento-item plain">
+      <div class="texto">
+        <h2 id="titulo2">Por que reciclar?</h2>
+        <p id="texto2">A reciclagem reduz o lixo e ajuda o planeta.</p>
+      </div>
+      <div class="imagem">
+        <div class="slider-vertical">
+         <img src="images_icons/floresta.jpg" class="slide-v active">
+         <img src="images_icons/flor.jpg" class="slide-v">
+         <img src="images_icons/vista.jpg" class="slide-v">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="impacto-comunitario fade">
+    <h2 class="titulo-grid">Dados de Impacto Comunitário</h2>
+    
+    <div class="container-impacto">
+      
+      <div class="impacto-card">
+        <div class="icon-box"><i class="fa-solid fa-house-user"></i></div>
+        <div class="dados-box">
+          <h3>Famílias Ativas</h3>
+          <p class="valor destaque">150+</p>
+          <p class="descricao">Famílias Cadastradas no Sistema de Mapeamento no Alto de Coutos</p>
+        </div>
+      </div>
+
+      <div class="impacto-card">
+        <div class="icon-box"><i class="fa-solid fa-balance-scale"></i></div>
+        <div class="dados-box">
+          <h3>Volume Mapeado</h3>
+          <p class="valor cinza">500kg+</p>
+          <p class="descricao">Total de Resíduos Registrados este Mês</p>
+        </div>
+      </div>
+
+      <div class="impacto-card">
+        <div class="icon-box"><i class="fa-solid fa-map-marker-alt"></i></div>
+        <div class="dados-box">
+          <h3>Pontos de Coleta Monitorados</h3>
+          <p class="valor">3</p>
+          <p class="descricao">Pontos Ativos em Tempo Real</p>
+        </div>
+      </div>
+
+      <div class="impacto-card">
+        <div class="icon-box"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="dados-box">
+          <h3>Meta Mensal de Reciclagem</h3>
+          <div class="progress-container">
+            <div class="progress-bar-fill" style="width: 90%;"></div>
+            <span class="progress-label">90%</span>
+          </div>
+          <p class="valor meta">Faltam 50kg</p>
+          <p class="descricao">Volume Necessário para Bater a Meta do Mês</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="dashboard-grid fade">
+    <div class="container-grid">
+      
+      <div class="bento-item imagem-coleta">
+        <img src="images_icons/chupangos.webp" alt="Pessoa reciclando" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+      </div>
+
+      <div class="bento-item">
+        <h3>Simulador de Pegada</h3>
+        <div class="simulador-controles">
+          <label>Identificação (Nome ou Comunidade)</label>
+          <input type="text" id="inputNome" placeholder="Ex: João da Silva" oninput="atualizarNomeRelatorio()">
+
+          <label>Frequência de reciclagem</label>
+          <input type="range" id="sliderReciclagem" min="10" max="100" value="50" oninput="atualizarGrafico()">
+          
+          <label>Uso de transporte público</label>
+          <input type="range" id="sliderTransporte" min="10" max="100" value="70" oninput="atualizarGrafico()">
+          
+          <label>Redução de consumo</label>
+          <input type="range" id="sliderConsumo" min="10" max="100" value="30" oninput="atualizarGrafico()">
+        </div>
+      </div>
+
+      <div class="bento-item dashboard-cartao" style="text-align: center; position: relative;" id="areaRelatorio">
+        <h3>Projeção de Impacto Positivo</h3>
+        <p id="subtituloGrafico" class="subtitulo-relatorio">Relatório Geral de Sustentabilidade</p>
+        
+        <div class="grafico-wrapper">
+           <canvas id="meuGraficoReal"></canvas>
+        </div>
+
+        <button onclick="baixarPDF()" class="btn-pdf-premium" data-html2canvas-ignore>
+          <i class="fa-solid fa-file-pdf"></i> Baixar Relatório PDF
+        </button>
+      </div>
+
+      <div class="bento-item texto-formal">
+        <h3>Dados para um Futuro Sustentável</h3>
+        <p>Esta plataforma foi desenvolvida com o propósito central de aplicar a tecnologia em prol da preservação ambiental da Cidade de Salvador e regiões vizinhas. Nosso foco é a coleta estruturada de dados sobre o descarte de materiais, auxiliando no registro e na otimização de todo o processo de reciclagem.</p>
+        <p>Nossas ações estão intrinsecamente ligadas à agenda global de sustentabilidade, refletindo as diretrizes do Objetivo de Desenvolvimento Sustentável Três, voltado para a Saúde e Bem-Estar. Ao garantirmos um ambiente mais limpo e a destinação correta dos resíduos sólidos, estamos promovendo, de forma ativa e mensurável, a saúde pública e a qualidade de vida de toda a população.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="rodape-duplo fade">
+    <div class="container bento-item grid-2col footer-content">
+      
+      <div class="form-container">
+        <h3>Siga Nosso Progresso e Contate-nos</h3>
+        <form>
+          <input type="text" placeholder="Nome (Campo de Texto)">
+          <input type="email" placeholder="Email (Campo de Texto)">
+          <textarea placeholder="Sua Mensagem (Área de Texto)"></textarea>
+          <button type="button">Enviar Message</button>
+        </form>
+      </div>
+
+      <div class="info-extra">
+        <h3>Informação Extra</h3>
+        
+        <div class="info-card-fundo">
+          <h4>Dica do Mês: Como Reciclar Lixo Eletrônico</h4>
+          <p>Procure postos de coleta especializados. Equipamentos eletrônicos possuem metais pesados que contaminam o solo se descartados incorretamente.</p>
+        </div>
+        
+        <div class="info-card-fundo">
+          <h4>Fato Curioso:</h4>
+          <p>Você sabia que reciclar uma tonelada de papel economiza dezessete árvores e poupa milhares de litros de água?</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="social-creditos">
+      <div class="icones-sociais">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <a href="#" class="link-ods-premium">Saiba Mais sobre o Objetivo de Saúde e Bem-Estar</a>
+      
+      <p class="equipe-creditos">Desenvolvido por: Caio, Bruno, Davi, Deivison e Jean</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
